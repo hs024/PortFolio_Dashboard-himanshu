@@ -62,7 +62,7 @@ const Projects = () => {
             className="p-0 overflow-hidden hover:shadow-2xl transition-transform duration-300 hover:scale-[1.02]"
           >
             <img
-              src={project.image}
+              src={`${import.meta.env.BASE_URL}${project.image}`}
               alt={project.name}
               className="w-full h-48 object-contain"
             />

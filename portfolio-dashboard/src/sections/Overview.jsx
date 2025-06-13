@@ -16,7 +16,7 @@ const Overview = () => {
       {/* Profile Section */}
       <Card className="flex flex-col md:flex-row items-center gap-6 bg-gradient-to-r from-blue-100 to-pink-100 dark:from-gray-800 dark:to-gray-900 transition-all duration-500">
         <img
-          src="/images/myphoto.jpg"
+          src={`${import.meta.env.BASE_URL}images/myphoto.jpg`}
           alt="Himanshu Sharma"
           className="w-36 h-36 rounded-full object-cover border-4 border-blue-500 shadow-lg"
         />
