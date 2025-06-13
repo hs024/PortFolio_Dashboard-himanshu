@@ -5,6 +5,7 @@ import Button from "./Button";
 
 const Sidebar = () => {
   const isOpen = useSelector((state) => state.sidebar.isOpen);
+  const theme = useSelector((state) => state.theme.mode); // assuming theme slice exists
   const dispatch = useDispatch();
 
   const menuItems = [
@@ -16,30 +17,24 @@ const Sidebar = () => {
   return (
     <aside
       className={`
-        bg-gradient-to-b from-gray-800 to-gray-900 text-white 
-        fixed md:relative z-10 h-full 
-        transition-all duration-500 ease-in-out 
-        ${isOpen ? "w-64" : "w-0 md:w-20"}
-        overflow-hidden shadow-xl
+        fixed top-0 left-0 z-20 h-screen overflow-hidden shadow-xl transition-all duration-300
+        ${isOpen ? "w-64" : "w-16"}
+        ${
+          theme === "dark"
+            ? "bg-gradient-to-b from-gray-800 to-gray-900 text-white"
+            : "bg-gradient-to-b from-white to-gray-100 text-gray-800"
+        }
       `}
     >
-      <div
-        className={`p-4 transition-opacity duration-300 ${
-          isOpen ? "opacity-100" : "opacity-0 md:opacity-100"
-        }`}
-      >
+      <div className="p-2 mx-0">
         {/* Header */}
-        <div className="flex justify-between items-center mb-8">
+        <div className="flex justify-between items-center mb-8 mx-0">
           {isOpen && (
             <h2 className="text-2xl font-extrabold tracking-tight">
               Portfolio
             </h2>
           )}
-          <Button
-            onClick={() => dispatch(toggle())}
-            className="md:hidden"
-            variant="secondary"
-          >
+          <Button onClick={() => dispatch(toggle())} variant="secondary" classname=" top-2 mx-2 left-0 z-50 bg-gray-700 text-white dark:bg-gray-300 dark:text-black p-1  shadow-md ">
             {isOpen ? "✕" : "☰"}
           </Button>
         </div>
@@ -53,7 +48,13 @@ const Sidebar = () => {
                   href={`#${name.toLowerCase()}`}
                   className={`
                     flex items-center gap-3 px-3 py-2 rounded-lg 
-                    hover:bg-gray-700 hover:scale-[1.02] transition-all duration-300
+                    transition-all duration-300
+                    ${
+                      theme === "dark"
+                        ? "hover:bg-gray-700"
+                        : "hover:bg-gray-300"
+                    }
+                    hover:scale-[1.02]
                     ${!isOpen ? "justify-center" : ""}
                   `}
                   title={!isOpen ? name : ""}

@@ -5,8 +5,8 @@ import Button from "../components/Button";
 const Contact = () => {
   return (
     <section id="contact" className="mb-12 px-4 md:px-0">
-      <h2 className="text-3xl font-bold mb-6 text-gray-800 dark:text-white tracking-tight">
-        Contact
+      <h2 className=" underline text-3xl font-bold mb-4 bg-gradient-to-r from-pink-500 via-yellow-500 to-indigo-500 bg-clip-text text-transparent animate-gradientMove bg-[length:200%_200%]">
+        Contacts
       </h2>
 
       <Card title="Get in Touch" className="max-w-2xl mx-auto">
