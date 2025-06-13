@@ -50,10 +50,6 @@ portfolio-dashboard/
 ├── vite.config.js
 ```
 
-🧊 Author
-
-Himanshu Sharma
-📧 hs0242262@gmail.com
-🔗 LinkedIn
-💻 GitHub
+## 🧊 Author
+- Himanshu Sharma
 
